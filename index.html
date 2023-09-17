@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Imagination Invoice Sample</title>
+
+        <!-- For Bootstrap-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous">
+        <!--For Bootstrap icon-->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+        <!-- CSS For Print Format -->
+       
+
+        <!-- CSS For Invoice -->
+        <link rel="stylesheet" href="invoice.css">
+        <link rel="stylesheet" href="bangchitieu.css">
+
+        <!-- jQuery CDN-->
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.6.2.slim.js" integrity="sha256-OflJKW8Z8amEUuCaflBZJ4GOg4+JnNh9JdVfoV+6biw=" crossorigin="anonymous"></script>-->
+
+        <!-- For Invoice  -->
+
+        <!--<script src="script.js"></script>-->
+
+        <style>
+       
+      </style>
+
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <!--from app script-->
+            <form id="myForm" method="POST"
+                action="https://script.google.com/macros/s/AKfycbywJLeOLLgwx8tE-GR-vL1pXzFn4fOg42N9ZQ3q6xDWDaA81cikjJltq5noR-L6MTHc/exec"
+                class="needs-validation" novalidate>
+
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h5>Invoice Sample</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-primary"><h6>Customer Information</h6></div><!--thong tin khach hang-->
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Customer :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Customer" name="cust_nm"
+                                        required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Address :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Address" name="addr">
+                                </div>
+                                <div class="input-group mb-3 NoPrint">
+                                    <span class="input-group-text">City :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="City" name="city">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Oder. No</span>
+                                    <input class="form-control"
+                                        placeholder="Oder. No" name="inv_no"
+                                        id="inv_no">
+                                </div>
+                                <div class="input-group mb-3 NoPrint">
+                                    <span class="input-group-text">Customer Code
+                                        :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Customer Code"
+                                        name="cust_no">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Tax code :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Tax code" name="tax_code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Contact
+                                        person :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Contact" name="cont_per">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Phone :</span>
+                                    <input type="number" class="form-control"
+                                        placeholder="Phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Email :</span>
+                                    <input type="email" class="form-control"
+                                        placeholder="Email" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <!--thong tin mau-->
+                        <div class="text-primary"><h6>Sample Information</h6></div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text1"
+                                        id="inputGroup-sizing-default">Sample ID
+                                        :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="yyyy-mm-xxxx"
+                                        name="samp_id" id="samp_id">
+
+                                    <div class="input-group-append">
+                                        <button
+                                            class="btn btn-outline-secondary"
+                                            type="button" onclick="Search();">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text1"
+                                        id="inputGroup-sizing-default">Name of
+                                        Sample :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Name of Sample"
+                                        name="samp_nm">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text1">Sample
+                                        description :</span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Sample description"
+                                        name="samp_des">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text1">Matrix :</span>
+
+                                    <input class="form-control" type="text"
+                                        name="matr" list="mylist"
+                                        autocomplete="off"
+                                        placeholder="Select a matrix">
+                                    <datalist id="mylist">
+                                        <option value="Bao bì">Bao bì</option>
+                                        <option value="Chế phẩm sinh học">Chế
+                                            phẩm sinh học</option>
+                                        <option value="Đất">Đất</option>
+                                        <option value="Đất Bùn thải">Đất Bùn
+                                            thải</option>
+                                        <option value="Đồ chơi trẻ em">Đồ chơi
+                                            trẻ em</option>
+                                        <option value="Đông trùng hạ thảo">Đông
+                                            trùng hạ thảo</option>
+                                        <option value="Huyết thanh">Huyết thanh</option>
+                                        <option value="Không khí">Không khí</option>
+                                        <option value="Nước">Nước</option>
+                                        <option value="Phân bón">Phân bón</option>
+                                        <option
+                                            value="Phân bón có chất điều hòa sinh trưởng">Phân
+                                            bón có chất điều hòa sinh trưởng</option>
+                                        <option value="Phân bón sinh học">Phân
+                                            bón sinh học</option>
+                                        <option value="Phân hữu cơ">Phân hữu cơ</option>
+                                        <option value="Phân vô cơ">Phân vô cơ</option>
+                                        <option value="Phụ gia thực phẩm">Phụ
+                                            gia thực phẩm</option>
+                                        <option value="Sâm">Sâm</option>
+                                        <option value="Swab">Swab</option>
+                                        <option value="Thuốc BVTV">Thuốc BVTV</option>
+                                        <option value="Thuốc Thú Y">Thuốc Thú Y</option>
+                                        <option value="Thủy sản">Thủy sản</option>
+                                        <option value="Thức ăn chăn nuôi">Thức
+                                            ăn chăn nuôi</option>
+                                        <option value="Thực phẩm">Thực phẩm</option>
+                                        <option value="Tinh dầu">Tinh dầu</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text1">Date of
+                                        sample recieved :</span>
+                                    <input type="date" class="form-control"
+                                        placeholder="Inv. Date" name="re_dt"
+                                        id="re_dt">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text1">Date of
+                                        issuance :</span>
+                                    <input type="date" class="form-control"
+                                        placeholder="Inv. Date" name="iss_dt"
+                                        id="iss_dt">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="IsNew" name="IsNew" value="Y">
+                    <input type="hidden" id="StartRow" name="StartRow" value="0">
+                    <input type="hidden" id="RowCount" name="RowCount" value="0">
+
+                    <div class="card-body">
+                        <div
+                            class="input-group input-group-sm mb-3 ml-auto justify-content-sm-end enter-number">
+                            <span class="input-group-text">Enter a Number:</span>
+                            <input type="number" class="form-control1"
+                                id="inputNumber" placeholder="Number Rows">
+                            <button type="button" class="btn btn-sm btn-success"
+                                onclick="AddRowWithEnteredNumber()">Add Row</button>
+                        </div>
+         <!--bang chi tieu-->
+                        <div class="card-body">
+                            <div class="row">
+
+
+                                <div class="col">
+                                    <table id="myTable"
+                                        class="table table-bordered"
+                                        style="text-align: center">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Parameter</th>
+                                                <th scope="col">Method</th>
+                                                <th scope="col" class="text-end">Unit
+                                                    Price</th>
+                                                <th scope="col" class="NoPrint">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-success"
+                                                        onclick="BtnAdd()">+</button>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="TBody">
+                                            <!--dinh dang gia tri input nhap vao-->
+                                            
+                                            <tr id="TRow1" class="d-none">
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    <!--<input class="form-control" name="item_nm" list="mylist1" autocomplete="off" required  onchange="GetRate(this)">
+                                        <datalist id="mylist1"></datalist>-->
+                                                    <input
+                                                    class="form-control item-input"
+                                                    name="item_nm"
+                                                    id="item_nm_0">
+
+                                                </td>
+                                                <td> <input
+                                                        class="form-control meth-input"
+                                                        name="meth" id="meth_0"></td>
+                                                <td>
+                                                    <input type="number"
+                                                        class="form-control text-end"
+                                                        name="rate" id="rate"
+                                                        onchange="GetTotal()"></td>
+                                                <!--<td><input type="number" class="form-control text-end" name="amt" value="0" readonly=""></td>-->
+                                                <td class="NoPrint"><button
+                                                        type="button"
+                                                        class="btn btn-sm btn-danger"
+                                                        onclick="BtnDel(this)">X</button></td>
+                                            </tr>
+                                            <tr id="TRow">
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    <!--<input class="form-control" name="item_nm" list="mylist1" autocomplete="off" required  onchange="GetRate(this)">
+                                        <datalist id="mylist1"></datalist>-->
+                                                    <input
+                                                    class="form-control item-input"
+                                                    name="item_nm"
+                                                    id="item_nm">
+
+                                                </td>
+                                                <td> <input
+                                                        class="form-control meth-input"
+                                                        name="meth" id="meth"></td>
+                                                <td>
+                                                    <input type="number"
+                                                        class="form-control text-end"
+                                                        name="rate" id="rate"
+                                                        onchange="GetTotal()"></td>
+                                                <!--<td><input type="number" class="form-control text-end" name="amt" value="0" readonly=""></td>-->
+                                                <td class="NoPrint"><button
+                                                        type="button"
+                                                        class="btn btn-sm btn-danger"
+                                                        onclick="BtnDel(this)">X</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <div class="row">
+                                        <select id="conditionSelect"
+                                            class="form-select me-2"
+                                            style="font-size: 12px;">
+                                            <option value="all">Select
+                                                Category...</option>
+                                            <option value="Phân bón">Phân bón</option>
+                                            <option value="Thực phẩm">Thực phẩm</option>
+                                            <!-- Add more condition options here -->
+                                        </select>
+
+                                        <div class="row">
+                                            <input id="searchInputdata"
+                                                type="text" class="form-control"
+                                                placeholder="Search..."
+                                                style="font-size: 12px;">
+                                           
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div id="resultContainer"
+                                        class="container-lg table-responsive">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8">
+                                <button type="submit" class="btn btn-primary"
+                                    name="action" id="submit" value="submit">Submit</button>
+                                <!--<button class="btn btn-warning" name="show" id="show" value="show">DATA</button>-->
+                                <button type="button" class="btn btn-success"
+                                    onclick="GetPrint()">Print</button>
+                                <button id="clearButton" type="button" class="btn btn-danger"
+                                    onclick="clearTable()">clear</button>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Total</span>
+                                    <input type="number"
+                                        class="form-control text-end"
+                                        id="FTotal" name="Total" disabled>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">VAT</span>
+                                    <input type="number"
+                                        class="form-control text-end" id="FTax"
+                                        name="Tax" value="8"
+                                        onchange="GetTotal()">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">TAC</span>
+                                    <input type="number"
+                                        class="form-control text-end" id="FTac"
+                                        name="Tac" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bootstrap Bundle JS -->
+
+        <script src="invoice.js"></script>
+    </body>
+</html>
