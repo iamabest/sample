@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 var AppsScriptLink = "AKfycbz_d5jSPFHljYFjdjH8YMAyXvwbKGEqzu5wVCvRCjdaNhxW12_eSkCjB1Chxh-KKzgu";
-=======
-var AppsScriptLink = "AKfycbyNDDgwYguLBeNz9kd8QgJ9XzxpHHKTRbVcr-DsexeESzOWLXSfUu_0pjAFAMCi_KLM";
->>>>>>> e977d59b6c7710aa451e254835d5d76e5957c19e
-
 $(document).ready(function () {
     FillDataList();
     SetCurrentDate();
